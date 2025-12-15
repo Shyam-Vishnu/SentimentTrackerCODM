@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytics · CODM Sentiment Tracker</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>CODM Reddit Sentiment Tracker</h1>
+      <nav>
+        <a href="./index.html">Latest posts</a>
+        <a class="active" href="./analytics.html">Word cloud + sentiment</a>
+        <a href="https://github.com/" target="_blank" rel="noreferrer">Repo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Word cloud (most requested / discussed)</h2>
+      <p class="muted">Uses extracted “requested items” (weighted), plus keyword signals.</p>
+      <div class="wc-wrap">
+        <canvas id="wc" width="900" height="450"></canvas>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Sentiment distribution</h2>
+      <p class="muted">Scores are 1–5 (1 = lowest, 5 = highest).</p>
+      <div class="chart-wrap">
+        <canvas id="sentChart"></canvas>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Top requested items</h2>
+      <div id="topItems" class="chips"></div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span class="muted">Tip: Adjust <code>POST_LIMIT</code> / <code>MAX_AGE_HOURS</code> in the workflow to control cost and recency.</span>
+  </footer>
+
+  <script src="./analytics.js"></script>
+</body>
+</html>
