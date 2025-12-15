@@ -1,5 +1,6 @@
 name: Update Reddit sentiment data
 
+
 on:
   workflow_dispatch:
   schedule:
